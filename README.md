@@ -1,7 +1,7 @@
 Jekyll Group-By-Array
 =====================
 
-A liquid include file for Jekyll that allows object to be grouped by an array. For instance, it could be used to list posts by tag.
+A liquid include file for Jekyll that allows an object to be grouped by an array. For instance, it could be used to list posts by tag.
 
 Usage
 -----
