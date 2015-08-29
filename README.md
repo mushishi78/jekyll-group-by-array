@@ -1,14 +1,14 @@
-Jekyll-Invert
-=============
+Jekyll Group-By-Array
+=====================
 
-A liquid include file for Jekyll that allows one-to-one and one-to-many relations to be inverted. For instance, it could be used to list posts by author or by tag.
+A liquid include file for Jekyll that allows object to be grouped by an array. For instance, it could be used to list posts by tag.
 
 Usage
 -----
 
-Copy the [`jekyll-invert.html`](https://raw.githubusercontent.com/mushishi78/jekyll-invert/master/jekyll-invert.html) file into your Jekyll project's `_includes` directory.
+Copy the [`group-by-array.html`](https://raw.githubusercontent.com/mushishi78/jekyll-group-by-array/master/group-by-array.html) file into your Jekyll project's `_includes` directory.
 
-Include the file in your template, passing in a `collection` and a `field` variable. Then Jekyll-Invert will set `inverted-keys` and `inverted-values` global variables with the results.
+Include the file in your template, passing in a `collection` and a `field` variable. Then Jekyll Group-By-Array will set `group-names` and `group-items` global variables with the results.
 
 For example:
 
@@ -16,13 +16,14 @@ For example:
 ---
 layout: page
 title: Tags
+permalink: /tags/
 ---
 
-{% include jekyll-invert.html collection=site.posts field='tags' %}
+{% include group-by-array.html collection=site.posts field='tags' %}
 
 <ul>
-  {% for tag in inverted_keys %}
-    {% assign posts = inverted_values[forloop.index0] %}
+  {% for tag in group_names %}
+    {% assign posts = group_items[forloop.index0] %}
 
     <li>
       <h2>{{ tag }}</h2>
@@ -38,12 +39,12 @@ title: Tags
 </ul>
 ```
 
-For an extended example, checkout out this [jekyll-invert example branch](https://github.com/mushishi78/fresh-jekyll/tree/jekyll-invert-example) of the Fresh Jeykll repository.
+For an extended example, checkout out this [group-by-array example branch](https://github.com/mushishi78/fresh-jekyll/tree/jekyll-group-by-array) of the Fresh Jekyll repository.
 
 Contributing
 ------------
 
-1. [Fork it](https://github.com/mushishi78/jekyll-invert/fork)
+1. [Fork it](https://github.com/mushishi78/jekyll-group-by-array/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
